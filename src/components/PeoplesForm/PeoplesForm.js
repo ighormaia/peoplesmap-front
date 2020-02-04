@@ -6,6 +6,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import DateFnsUtils from '@date-io/date-fns';
 import { apiUrl, ufsUrl } from '../../configs/urls';
+import SimpleReactValidator from 'simple-react-validator';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'date-fns';
@@ -18,6 +19,12 @@ import './PeoplesForm.css';
 class PeoplesForm extends Component {
   constructor(props) {
     super(props);
+
+    this.validator = new SimpleReactValidator({
+      messages: {
+        required: 'Campo obrigatório.',
+      },
+    });
 
     this.initialState = {
       name: '',
@@ -70,14 +77,27 @@ class PeoplesForm extends Component {
   }
 
   submitListener = () => {
-    const config = {
-      headers: {'Content-Type': 'application/json'}
-    };
+    if (this.validator.allValid()) {
+      const config = {
+        headers: {'Content-Type': 'application/json'}
+      };
 
-    axios.post(apiUrl + `/peoples`, this.state, config)
-    .then(res => {
-      this.props.history.push('/');
-    })
+      let people = {
+        name: this.state.name,
+        cpf: this.state.cpf.replace(/[^\d]/g, ''),
+        birthDate: this.state.birthDate,
+        weight: this.state.weight.replace(',','.'),
+        uf: this.state.uf
+      }
+  
+      axios.post(apiUrl + `/peoples`, people, config)
+      .then(res => {
+        this.props.history.push('/');
+      })
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   };
 
   componentDidMount() {
@@ -99,6 +119,7 @@ class PeoplesForm extends Component {
               name='name'
               value={name}
               onChange={this.inputListener} />
+            {this.validator.message('Nome', this.state.name, 'required')}
 
             <label htmlFor='cpf'>CPF*</label>
             <input
@@ -107,6 +128,7 @@ class PeoplesForm extends Component {
               name='cpf'
               value={cpf}
               onChange={this.inputListener} />
+            {this.validator.message('CPF', this.state.cpf, 'required')}
 
             <label htmlFor='weight'>Peso</label>
             <input
@@ -155,6 +177,7 @@ class PeoplesForm extends Component {
                   )}
                 </Select>
               </FormControl>
+              {this.validator.message('UF', this.state.uf, 'required')}
             </div>
 
             <br></br>

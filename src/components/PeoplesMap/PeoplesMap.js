@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import './PeoplesMap.css';
 
 import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import { statesPos } from '../../configs/states';
 import { wmsUrl, wmsLayer } from '../../configs/urls';

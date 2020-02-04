@@ -25,7 +25,7 @@ const TableBody = props => {
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.cpf}</td>
-        <td>{Moment(row.birthDate).format('DD/MM/YYYY')}</td>
+        <td>{row.birthDate ? Moment(row.birthDate).format('DD/MM/YYYY') : ''}</td>
         <td>{row.weight}</td>
         <td>{row.uf}</td>
       </tr>

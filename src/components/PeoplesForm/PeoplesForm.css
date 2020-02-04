@@ -24,3 +24,7 @@
 .uf-select {
   width: 100%;
 }
+
+#date-picker {
+  border-bottom: none !important;
+}
