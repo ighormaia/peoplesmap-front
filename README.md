@@ -28,7 +28,11 @@ Após a execução a api estará disponível na url:
 
 
 O projeto também se encontra disponível hospedado no Heroku:
-- https://peoplesmap-api.herokuapp.com/:8000
+- http://http://peoplesmap-front.herokuapp.com/:8000
+
+OBS:. A aplicação deve ser acessada com o protocolo HTTP.
+
+OBS:. Ao entrar em hibernação a instância do Postgres é resetada, apagando os dados salvos.
 
 está hospedado no plano gratuito onde tem acesso a uma instancia do Postgres
 e a cada 1 hora sem acessos entra em modo de hibernação, demorando alguns segundos
