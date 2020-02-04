@@ -15,8 +15,7 @@ class PeoplesMap extends Component {
     const { peoples } = this.props.data;
 
     let DefaultIcon = L.icon({
-      iconUrl: icon,
-      shadowUrl: iconShadow
+      iconUrl: icon
     });
 
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -37,7 +36,6 @@ class PeoplesMap extends Component {
                 <Marker 
                   key={index} 
                   position={statesPos[people.uf]} 
-                  icon={L.divIcon({html: 1})}
                 />
               )
             })}
