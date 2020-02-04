@@ -3,7 +3,7 @@ import { apiUrl } from '../configs/urls';
 import axios from 'axios';
 
 import PeoplesMap from '../components/PeoplesMap/PeoplesMap';
-import PeoplesTable from './PeoplesTable/PeoplesTable';
+import PeoplesTable from '../components/PeoplesTable/PeoplesTable';
 
 class Home extends Component {
 

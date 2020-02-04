@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Header from './components/Header/Header';
-import Form from './pages/PeoplesForm/PeoplesForm';
+import Form from './components/PeoplesForm/PeoplesForm';
 import Home from './pages/Home';
 
 
