@@ -1,4 +1,4 @@
-## Project Overview
+## Peoples Map Front
 
 Api desenvolvida utilizando o framework React, utilizando as seguintes bibliotecas:
  - material-ui
