@@ -1,5 +1,5 @@
 // const apiUrl = 'http://localhost:8000/api/v1';
-const apiUrl = 'http://peoplesmap-api.herokuapp.com:8000/api/v1';
+const apiUrl = 'https://peoplesmap-api.herokuapp.com/api/v1';
 
 const ufsUrl = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados';
 
