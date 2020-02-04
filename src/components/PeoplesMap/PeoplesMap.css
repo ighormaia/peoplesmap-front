@@ -1,0 +1,9 @@
+.leaflet-marker-icon {
+  border: none;
+  font-size: 18px;
+}
+
+.leaflet-container {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}

@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Moment from 'moment';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-
+import './PeoplesTable.css';
 
 const TableHead = () => {
   return (
@@ -41,23 +42,26 @@ const TableBody = props => {
 class PeoplesTable extends Component {
 
   render() {
-    const { data, remove } = this.props;
+    const { data } = this.props;
 
     return (
-      <Fragment>
-        <Link 
-          to='/newPeople'
-          className='right'
-          variant='contained'
-          color='primary'
-        >
-          Novo
-        </Link>
+      <div className='table-container'>
+        <h4>Pessoas</h4>
+        <Button
+          variant="contained"
+          className="right"
+          color="primary">
+          <Link
+            className="link-button"
+            to='/newPeople'>
+              Adicionar 
+          </Link>
+        </Button>
         <table className='centered highlight'>
           <TableHead />
-          <TableBody data={data} remove={remove} />
+          <TableBody data={data} />
         </table>
-      </Fragment>
+      </div>
     );
   }
 }

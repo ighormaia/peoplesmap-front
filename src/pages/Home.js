@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { api } from '../services/api';
+import { apiUrl } from '../configs/urls';
+import axios from 'axios';
 
-import Table from './PeoplesTable';
+import PeoplesMap from '../components/PeoplesMap/PeoplesMap';
+import PeoplesTable from './PeoplesTable/PeoplesTable';
 
 class Home extends Component {
 
@@ -11,7 +13,7 @@ class Home extends Component {
   };
 
   getPeoples = () => {
-    api.get(`/peoples`)
+    axios.get(apiUrl + `/peoples`)
       .then(res =>{
         const peoples = res.data;
         this.setState({
@@ -27,8 +29,9 @@ class Home extends Component {
   render() {
     return (
       <Fragment>
+        <PeoplesMap data={this.state} />
         <div className='container'>
-          <Table data={this.state} />
+          <PeoplesTable data={this.state} />
         </div>
       </Fragment>
     );
